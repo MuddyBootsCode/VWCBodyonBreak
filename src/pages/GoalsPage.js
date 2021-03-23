@@ -1,11 +1,11 @@
 import React from 'react';
 
-const AboutPage = () => {
+const GoalsPage = () => {
   return (
     <div className="PageBody">
-      The About Page
+      The Goals Page
     </div>
   );
 };
 
-export default AboutPage;
+export default GoalsPage;
