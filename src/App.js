@@ -7,7 +7,7 @@ import StatsPage from "./pages/StatsPage"
 import NavBar from "./components/NavBar";
 import ProfilePage from "./pages/ProfilePage";
 import ProtectedRoute from "./components/ProtectedRoute";
-import {useState} from "react";
+import { useState } from "react";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
