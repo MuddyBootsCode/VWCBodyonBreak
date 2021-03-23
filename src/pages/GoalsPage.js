@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AboutPage = () => {
+const GoalsPage = () => {
   return (
     <div className="PageBody">
       The About Page
@@ -8,4 +8,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default GoalsPage;

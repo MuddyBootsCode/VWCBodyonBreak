@@ -1,12 +1,11 @@
 import React from 'react';
 
-
-const HomePage = () => {
+const ProfilePage = () => {
   return (
     <div className="PageBody">
-        Home Page
+      This is the Profile page
     </div>
   );
 };
 
-export default HomePage;
+export default ProfilePage;
