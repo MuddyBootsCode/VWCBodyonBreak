@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 
-const NavBar = ({ setLoggedIn, loggedIn }) => {
+const NavBar = ({setLoggedIn, loggedIn}) => {
 
   // const { setLoggedIn, loggedIn } = props;
 
@@ -28,22 +28,21 @@ const NavBar = ({ setLoggedIn, loggedIn }) => {
         )
       }
       {
-        !loggedIn && (
-          <button
-            onClick={() => setLoggedIn(true)}
-          >
-            Login
-          </button>
-        )
-      }
-      {
-        loggedIn && (
-          <button
-            onClick={onLogout}
-          >
-            Logout
-          </button>
-        )
+        !loggedIn ? (
+            <button
+              onClick={() => setLoggedIn(true)}
+            >
+              Login
+            </button>
+          )
+          :
+          (
+            <button
+              onClick={onLogout}
+            >
+              Logout
+            </button>
+          )
       }
     </div>
   );
