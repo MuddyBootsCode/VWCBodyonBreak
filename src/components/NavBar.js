@@ -17,6 +17,7 @@ const NavBar = ({setLoggedIn, loggedIn}) => {
       </Link>
       <Link to={'/'}>Home</Link>
       <Link to={'/goals'}>Goals</Link>
+      <Link to={'/workouts'}>Workouts</Link>
       <Link to={'/stats'}>Stats</Link>
       <Link to={'/workouts'}>Workouts</Link>
       {
