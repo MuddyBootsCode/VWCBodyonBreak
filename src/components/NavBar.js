@@ -3,8 +3,6 @@ import {Link, useHistory} from 'react-router-dom';
 
 const NavBar = ({setLoggedIn, loggedIn}) => {
 
-  // const { setLoggedIn, loggedIn } = props;
-
   let history = useHistory()
   const onLogout = () => {
     setLoggedIn(false)

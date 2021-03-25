@@ -18,7 +18,9 @@ function App() {
         <NavBar loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
             <Switch>
               <Route path='/' exact component={HomePage} />
-              <Route path='/goals' exact component={GoalsPage} />
+              <Route path='/goals' exact>
+                <GoalsPage user={loggedIn} />
+              </Route>
               <Route path='/stats' exact component={StatsPage} />
               <Route path='/workouts' exact component={WorkoutsPage} />
               <ProtectedRoute path='/profile' user={loggedIn} exact component={ProfilePage} />
