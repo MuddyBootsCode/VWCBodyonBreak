@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
+import short from 'short-uuid';
 
 const defaultGoals = [
   {
     name: 'Not be fat',
     id: '1',
+    editing: false
   },
   {
     name: 'Not be fatter',
     id: '2',
+    editing: false
   },
   {
     name: 'Not be fattest',
     id: '3',
+    editing: false
   },
 
-]
+];
 
 const GoalsPage = ({user}) => {
   const [goals, setGoals] = useState(defaultGoals);
@@ -26,12 +30,27 @@ const GoalsPage = ({user}) => {
   }
 
   const handleChange = e => {
+    const { target: { name, value }} = e;
     e.preventDefault();
-    const name = e.target.name
-    const value = e.target.value
     setFormState({...formState, [name]: value})
   }
 
+  const submitForm = e => {
+    e.preventDefault()
+    const id = short.generate();
+    setGoals([...goals, { name:formState['name'], id }])
+    setFormState({ name: '' })
+  }
+
+  const setEditing = (id) => {
+    let goalToUpdate = goals.find(goal => goal.id === id)
+    goalToUpdate.editing = true;
+    let newGoals = goals.filter(goal => goal.id !== id)
+    newGoals = [...newGoals, goalToUpdate]
+    setGoals(newGoals)
+  }
+
+  console.log(goals, ' This is goals')
 
   return (
     <div className="PageBody">
@@ -40,23 +59,31 @@ const GoalsPage = ({user}) => {
         user ? (
           <div>
             <ul>
-              <form>
+              <form onSubmit={submitForm}>
                 <input
+                  type='text'
                   value={name}
                   name="name"
-                  placeholder=" x value"
+                  placeholder="Goal to set"
                   onChange={handleChange}
-                  className="border border-black border-2 rounded m-0 shadow-lg"
                 />
-                <button>Add a Goal</button>
+                <button type='submit'>Add a Goal</button>
               </form>
-
               {
-                goals.map((goal) => {
-                  const { name, id, } = goal;
+                goals.map((goal, index) => {
+                  const { name, id, editing } = goal;
                   return (
                     <div style={{ display: 'flex' }}>
-                      <span key={id}>{name}</span><button onClick={() => onRemoveGoal(id)}> - Remove Goal</button>
+                      {
+                        editing ? (
+                          <span> I'm being edited</span>
+                        ) :
+                          (
+                            <span key={id}>{name}</span>
+                          )
+                      }
+                      <button onClick={() => onRemoveGoal(id)}> - </button>
+                      <button onClick={() => setEditing(id)}>{editing ? 'Set' : 'Edit'}</button>
                     </div>
                     )
                 })
