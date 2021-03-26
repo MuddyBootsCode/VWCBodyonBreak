@@ -18,7 +18,6 @@ function App() {
         <NavBar loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
             <Switch>
               <Route path='/' exact component={HomePage} />
-              <Route path='/goals' exact component={GoalsPage} />
               <Route path='/workouts' exact component={WorkoutsPage} />
               <Route path='/goals' exact>
                 <GoalsPage user={loggedIn} />

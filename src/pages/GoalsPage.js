@@ -1,36 +1,36 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import short from 'short-uuid';
 
 const defaultGoals = [
   {
-    name: 'Not be fat',
+    goal: 'Not be fat',
     id: '1',
-    editing: false
+    editing: false,
   },
   {
-    name: 'Not be fatter',
+    goal: 'Not be fatter',
     id: '2',
-    editing: false
+    editing: false,
   },
   {
-    name: 'Not be fattest',
+    goal: 'Not be fattest',
     id: '3',
-    editing: false
+    editing: false,
   },
 
 ];
 
 const GoalsPage = ({user}) => {
   const [goals, setGoals] = useState(defaultGoals);
-  const [formState, setFormState] = useState({ name: '' });
-  const { name } = formState;
+  const [formState, setFormState] = useState({goal: ''});
+  const {goal} = formState;
 
   const onRemoveGoal = (id) => {
     setGoals(goals.filter(item => item.id !== id))
   }
 
   const handleChange = e => {
-    const { target: { name, value }} = e;
+    const {target: {name, value}} = e;
     e.preventDefault();
     setFormState({...formState, [name]: value})
   }
@@ -38,60 +38,72 @@ const GoalsPage = ({user}) => {
   const submitForm = e => {
     e.preventDefault()
     const id = short.generate();
-    setGoals([...goals, { name:formState['name'], id }])
-    setFormState({ name: '' })
+    setGoals([...goals, {goal: formState['goal'], id, editing: false}])
+    setFormState({goal: ''})
   }
 
-  const setEditing = (id) => {
+  const editGoal = (id, index) => {
     let goalToUpdate = goals.find(goal => goal.id === id)
     goalToUpdate.editing = true;
     let newGoals = goals.filter(goal => goal.id !== id)
-    newGoals = [...newGoals, goalToUpdate]
+    newGoals.splice(index, 0, goalToUpdate)
     setGoals(newGoals)
   }
-
-  console.log(goals, ' This is goals')
 
   return (
     <div className="PageBody">
       Goals
       {
         user ? (
-          <div>
-            <ul>
-              <form onSubmit={submitForm}>
-                <input
-                  type='text'
-                  value={name}
-                  name="name"
-                  placeholder="Goal to set"
-                  onChange={handleChange}
-                />
-                <button type='submit'>Add a Goal</button>
-              </form>
-              {
-                goals.map((goal, index) => {
-                  const { name, id, editing } = goal;
-                  return (
-                    <div style={{ display: 'flex' }}>
-                      {
-                        editing ? (
-                          <span> I'm being edited</span>
-                        ) :
-                          (
-                            <span key={id}>{name}</span>
-                          )
-                      }
-                      <button onClick={() => onRemoveGoal(id)}> - </button>
-                      <button onClick={() => setEditing(id)}>{editing ? 'Set' : 'Edit'}</button>
-                    </div>
+            <div>
+              <ul>
+                <form onSubmit={submitForm}>
+                  <input
+                    type='text'
+                    value={goal}
+                    name="goal"
+                    placeholder="Goal to set"
+                    onChange={handleChange}
+                  />
+                  <button type='submit'>Add a Goal</button>
+                </form>
+                {
+                  goals.map((g, index) => {
+                    const {goal, id, editing} = g;
+                    return (
+                      <div style={{display: 'flex'}}>
+                        {
+                          editing ? (
+                              <input
+                                type='text'
+                                value={goal}
+                                name='editedGoal'
+                                placeholder={goal}
+                                onChange={handleChange}
+                              />
+                            ) :
+                            (
+                              <span key={id}>{goal}</span>
+                            )
+                        }
+                        <button onClick={() => onRemoveGoal(id)}>-</button>
+                        {
+                          editing ? (
+                              <button>Set</button>
+                            )
+                            :
+                            (
+                              <button onClick={() => editGoal(id, index)}>Edit</button>
+                            )
+                        }
+                      </div>
                     )
-                })
-              }
-            </ul>
+                  })
+                }
+              </ul>
 
-          </div>
-        )
+            </div>
+          )
           :
           (
             <div> Not Logged in</div>
