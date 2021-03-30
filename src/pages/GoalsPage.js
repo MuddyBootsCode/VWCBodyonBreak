@@ -22,8 +22,8 @@ const defaultGoals = [
 
 const GoalsPage = ({user}) => {
   const [goals, setGoals] = useState(defaultGoals);
-  const [formState, setFormState] = useState({goal: ''});
-  const {goal} = formState;
+  const [formState, setFormState] = useState({goal: '', editedGoal: ''});
+  const {goal, editedGoal} = formState;
 
   const onRemoveGoal = (id) => {
     setGoals(goals.filter(item => item.id !== id))
@@ -42,10 +42,10 @@ const GoalsPage = ({user}) => {
     setFormState({goal: ''})
   }
 
-  const editGoal = (id, index) => {
+  const setEditing = (id, index) => {
     let goalToUpdate = goals.find(goal => goal.id === id)
     goalToUpdate.editing = true;
-    let newGoals = goals.filter(goal => goal.id !== id)
+    let newGoals = [...goals].filter(goal => goal.id !== id)
     newGoals.splice(index, 0, goalToUpdate)
     setGoals(newGoals)
   }
@@ -76,7 +76,7 @@ const GoalsPage = ({user}) => {
                           editing ? (
                               <input
                                 type='text'
-                                value={goal}
+                                value={editedGoal}
                                 name='editedGoal'
                                 placeholder={goal}
                                 onChange={handleChange}
@@ -93,7 +93,7 @@ const GoalsPage = ({user}) => {
                             )
                             :
                             (
-                              <button onClick={() => editGoal(id, index)}>Edit</button>
+                              <button onClick={() => setEditing(id, index)}>Edit</button>
                             )
                         }
                       </div>
