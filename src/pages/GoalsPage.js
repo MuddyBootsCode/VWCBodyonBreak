@@ -50,6 +50,16 @@ const GoalsPage = ({user}) => {
     setGoals(newGoals)
   }
 
+  
+  const editGoal = (id, index) => {
+    let goalToUpdate = goals[index]
+    goalToUpdate.goal = editedGoal;
+    goalToUpdate.editing= false;
+    let newGoals = [...goals].filter(goal => goal.id !== id)
+    newGoals.splice(index, 0, goalToUpdate)
+    setGoals(newGoals)
+  }
+
   return (
     <div className="PageBody">
       Goals
@@ -89,7 +99,7 @@ const GoalsPage = ({user}) => {
                         <button onClick={() => onRemoveGoal(id)}>-</button>
                         {
                           editing ? (
-                              <button>Set</button>
+                              <button onClick={() => editGoal(id, index)}>Set</button>
                             )
                             :
                             (
