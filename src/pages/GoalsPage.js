@@ -62,7 +62,7 @@ const GoalsPage = ({user}) => {
       Goals
       {
         user ? (
-            <div>
+            <div className="GoalForm">
               <ul>
                 <form onSubmit={submitForm}>
                   <input
