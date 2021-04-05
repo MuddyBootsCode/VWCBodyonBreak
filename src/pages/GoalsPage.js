@@ -75,7 +75,12 @@ const GoalsPage = ({user}) => {
                     placeholder="Goal to set"
                     onChange={handleChange}
                   />
-                  <button type='submit'>Add a Goal</button>
+                  <button
+                    type='submit'
+                    disabled={!goal}
+                  >
+                    Add a Goal
+                  </button>
                 </form>
                 {
                   goals.map((g, index) => {
@@ -96,6 +101,7 @@ const GoalsPage = ({user}) => {
                               <span key={id}>{goal}</span>
                             )
                         }
+                        <div className="insideList">
                         <button onClick={() => onRemoveGoal(id)}>-</button>
                         {
                           editing ? (
@@ -106,6 +112,7 @@ const GoalsPage = ({user}) => {
                               <button onClick={() => setEditing(id, index)}>Edit</button>
                             )
                         }
+                        </div>
                       </div>
                     )
                   })
