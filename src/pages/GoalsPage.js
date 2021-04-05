@@ -81,7 +81,7 @@ const GoalsPage = ({user}) => {
                   goals.map((g, index) => {
                     const {goal, id, editing} = g;
                     return (
-                      <div style={{display: 'flex'}}>
+                      <div className="listItem">
                         {
                           editing ? (
                               <input
