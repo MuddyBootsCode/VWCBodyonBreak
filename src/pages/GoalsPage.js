@@ -91,7 +91,7 @@ const GoalsPage = ({user}) => {
                   goals.map((g, index) => {
                     const {goal, id, editing} = g;
                     return (
-                      <div className="listItem">
+                      <div className="goalList">
                         {
                           editing ? (
                               <input
@@ -106,7 +106,7 @@ const GoalsPage = ({user}) => {
                               <span className="goalText" key={id}>{goal}</span>
                             )
                         }
-                        <div className="insideList">
+                        <div className="goalButton">
                         <button onClick={() => onRemoveGoal(id)}>-</button>
                         {
                           editing ? (
