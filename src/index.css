@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.GoalForm {
+  border: 5px red solid;
+  
+  padding: 20px;
+  margin: auto;
+}
+
+.GoalForm button {
+  margin: 5 px;
+}

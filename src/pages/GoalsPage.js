@@ -1,3 +1,6 @@
+// Let 's do some form validation make it where an empty goal cannot be submitted. Also, see if you 
+// can't do some preliminary styling for the form.
+
 import React, {useState} from 'react';
 import short from 'short-uuid';
 
@@ -43,8 +46,12 @@ const GoalsPage = ({user}) => {
   const submitForm = e => {
     e.preventDefault()
     const id = short.generate();
-    setGoals([...goals, {goal: formState['goal'], id, editing: false}])
-    setFormState({goal: ''})
+    if (goal === '') {
+      alert("Please add a goal")
+    } else {
+      setGoals([...goals, {goal: formState['goal'], id, editing: false}])
+      setFormState({goal: ''})
+    }
   }
 
   const setEditing = (id, index) => {
@@ -70,7 +77,7 @@ const GoalsPage = ({user}) => {
       Goals
       {
         user ? (
-            <div>
+            <div className="GoalForm">
               <ul>
                 <form onSubmit={submitForm}>
                   <input
