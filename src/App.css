@@ -41,11 +41,23 @@ body {
 .listItem {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  /* justify-content: flexstart; */
+
+  padding-left: 15px;
   border: 1px black solid;
 
 }
 
 .insideList {
-  border: 1px red solid;
+  /* border: 5px red solid; */
+  display: flex;
+  align-items: center;
+  padding: 5%;
+  justify-content: space-evenly;
+}
+
+.insideList button {
+  display: flex;
+  align-items: flex-end;
+  margin-right: 10px;
 }
