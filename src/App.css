@@ -40,12 +40,30 @@ body {
 
 .listItem {
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  border: 1px black solid;
+  flex-wrap: wrap;
+  align-items: left;
+  justify-content: flexstart;
+
+  margin-top: 2%;
+  /* padding-left: 15px; */
+  border: 5px black dotted;
 
 }
 
 .insideList {
-  border: 1px red solid;
+  /* border: 5px red solid; */
+  display: flex;
+  /* align-items: center; */
+  /* padding: 5%; */
+  /* justify-content: space-evenly; */
+}
+
+.goalText {
+  /* border: pink 2px solid; */
+}
+
+.insideList button {
+  display: flex;
+  align-items: flex-end;
+  margin-left: 10px;
 }
