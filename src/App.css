@@ -31,6 +31,7 @@ body {
   align-items: center;
   background: linear-gradient(#f69d3c, #ebf8e1, #3f87a6);
   border-bottom: 1px black solid;
+  width: 100%;
 }
 
 .NavBar a {    
@@ -92,6 +93,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 45%;
   margin: 100px 40% 50px 10%;
   animation: slideIn 2.35s forwards;
   -webkit-animation: slideIn 2.35s forwards;
@@ -100,7 +102,7 @@ body {
 
 .TrainingInfoBlock h2 {
   text-align: left;
-  margin: auto 20px;
+  margin: auto 0 auto 20px;
 }
 
 .TrainingInfoBlock p {
@@ -115,7 +117,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 25px 25%;
+  width: 45%;
+  margin: 25px 20%;
   animation: slideIn 2.75s forwards;
   -webkit-animation: slideIn 2.75s forwards;
   -moz-animation: slideIn 2.75s forwards;
@@ -139,6 +142,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 45%;
   margin: 25px 10% 25px 40%;
   animation: slideIn 3.25s forwards;
   -webkit-animation: slideIn 3.25s forwards;
@@ -191,6 +195,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   border-top: 1px #000  solid;
+  width: 100%;
   background: linear-gradient(#3f87a6, #D9C1B6); /*temporary(maybe) just for effect/testing trying to look like water coming up to sandy shore */
   min-height: 100px; /* temporary to create height until context is added properly */
 }
