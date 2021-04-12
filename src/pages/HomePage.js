@@ -7,7 +7,6 @@ import SharingInfoBlock from '../components/Sharing';
 const HomePage = () => {
   return (
     <div className="PageBody">
-        Home Page
         <TrainingInfoBlock />
         <TrackingInfoBlock />
         <SharingInfoBlock />
