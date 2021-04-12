@@ -27,15 +27,18 @@ const NavBar = ({setLoggedIn, loggedIn}) => {
       }
       {
         !loggedIn ? (
+          [
+            <button className="navButton stayRight">Sign Up</button>,
             <button className="navButton"
               onClick={() => setLoggedIn(true)}
             >
               Login
             </button>
+          ]
           )
           :
           (
-            <button className="navButton"
+            <button className="navButton stayRight"
               onClick={onLogout}
             >
               Logout

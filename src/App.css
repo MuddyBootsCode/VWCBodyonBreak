@@ -73,12 +73,17 @@ body {
   padding: 5px 7px;
   background-color: #000;
   color: #FFF;
+  width: 75px;
   margin: 15px;
-  margin-left: auto;
+  /* margin-left: auto; */
   cursor: pointer;
   border: 2px solid #000;
   border-radius: 5px;
   transition-duration: 0.4s;
+}
+
+.navButton.stayRight {
+  margin-left: auto;
 }
 
 .navButton:hover {
