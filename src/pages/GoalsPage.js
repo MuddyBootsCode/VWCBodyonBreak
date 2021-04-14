@@ -1,145 +1,70 @@
 // Let 's do some form validation make it where an empty goal cannot be submitted. Also, see if you 
 // can't do some preliminary styling for the form.
 
-import React, {useState} from 'react';
-import short from 'short-uuid';
+import React from 'react';
+import { Formik, Form, Field, FieldArray} from 'formik';
 
-const defaultGoals = [
-  {
-    goal: 'Not be fat',
-    id: '1',
-    editing: false,
-  },
-  {
-    goal: 'Not be fatter',
-    id: '2',
-    editing: false,
-  },
-  {
-    goal: 'Not be fattest',
-    id: '3',
-    editing: false,
-  },
-  {
-    goal: 'Be the skinniestest ever bro',
-    id: '4',
-    editing: false,
-  },
-
-];
-
-const GoalsPage = ({user}) => {
-  const [goals, setGoals] = useState(defaultGoals);
-  const [formState, setFormState] = useState({goal: '', editedGoal: ''});
-  const {goal, editedGoal} = formState;
-
-  const onRemoveGoal = (id) => {
-    setGoals(goals.filter(item => item.id !== id))
-  }
-
-  const handleChange = e => {
-    const {target: {name, value}} = e;
-    e.preventDefault();
-    setFormState({...formState, [name]: value})
-  }
-
-  const submitForm = e => {
-    e.preventDefault()
-    const id = short.generate();
-    if (goal === '') {
-      alert("Please add a goal")
-    } else {
-      setGoals([...goals, {goal: formState['goal'], id, editing: false}])
-      setFormState({goal: ''})
-    }
-  }
-
-  const setEditing = (id, index) => {
-    let goalToUpdate = goals.find(goal => goal.id === id)
-    goalToUpdate.editing = true;
-    let newGoals = [...goals].filter(goal => goal.id !== id)
-    newGoals.splice(index, 0, goalToUpdate)
-    setGoals(newGoals)
-  }
-
-  
-  const editGoal = (id, index) => {
-    let goalToUpdate = goals[index]
-    goalToUpdate.goal = editedGoal;
-    goalToUpdate.editing= false;
-    let newGoals = [...goals].filter(goal => goal.id !== id)
-    newGoals.splice(index, 0, goalToUpdate)
-    setGoals(newGoals)
-  }
-
-  return (
-    <div className="PageBody">
-      Goals
-      {
-        user ? (
-            <div className="GoalForm">
-              <ul>
-                <form onSubmit={submitForm}>
-                  <input
-                    type='text'
-                    value={goal}
-                    name="goal"
-                    placeholder="Goal to set"
-                    onChange={handleChange}
-                  />
-                  <button
-                    type='submit'
-                    disabled={!goal}
-                  >
-                    Add a Goal
-                  </button>
-                </form>
-                {
-                  goals.map((g, index) => {
-                    const {goal, id, editing} = g;
-                    return (
-                      <div className="goalList">
-                        {
-                          editing ? (
-                              <input
-                                type='text'
-                                value={editedGoal}
-                                name='editedGoal'
-                                placeholder={goal}
-                                onChange={handleChange}
-                              />
-                            ) :
-                            (
-                              <span className="goalText" key={id}>{goal}</span>
-                            )
+const GoalsPage = () => (
+   <div>
+     <h1> Goals List </h1>
+     <Formik
+       initialValues={{ goals: 
+        [
+          'Greg is Awesome',
+          'Fitz is cool',
+          'Michael is Russian'
+        ] 
+      }}
+       onSubmit={values =>
+         setTimeout(() => {
+           alert(JSON.stringify(values, null, 2));
+         }, 500)
+       }
+       render={({ values }) => (
+         <Form>
+           <FieldArray
+             name="goals"
+             render={arrayHelpers => (
+               <div>
+                 {values.goals && values.goals.length >= 0 ? (
+                   values.goals.map((goal, index) => (
+                     <div key={index}>
+                       <Field name={`goals.${index}`} />
+                       <button
+                         type="button"
+                         onClick={() => arrayHelpers.remove(index)} // remove a friend from the list
+                       >
+                         -
+                       </button>
+                       <button
+                         type="button"
+                         onClick={() => {
+                           arrayHelpers.replace(index, values.goals[index])
+                          console.log(values.goals);
                         }
-                        <div className="goalButton">
-                        <button onClick={() => onRemoveGoal(id)}>-</button>
-                        {
-                          editing ? (
-                              <button onClick={() => editGoal(id, index)}>Set</button>
-                            )
-                            :
-                            (
-                              <button onClick={() => setEditing(id, index)}>Edit</button>
-                            )
-                        }
-                        </div>
-                      </div>
-                    )
-                  })
-                }
-              </ul>
-
-            </div>
-          )
-          :
-          (
-            <div> Not Logged in</div>
-          )
-      }
-    </div>
-  );
-};
+                      }
+                    // insert an empty string at a position
+                       >
+                         Edit
+                       </button>
+                     </div>
+                   ))
+                 ) : (
+                   <button type="button" onClick={() => arrayHelpers.push('')}>
+                     {/* show this when user has removed all goals from the list */}
+                      Add a Goal
+                   </button>
+                 )}
+                 <div>
+                   
+                   <button type='button' onClick={() => arrayHelpers.push('')}>Add a Goal </button>
+                 </div>
+               </div>
+             )}></FieldArray>
+         </Form>
+       )}
+     />
+   </div>
+ );
 
 export default GoalsPage;
