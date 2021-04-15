@@ -1,6 +1,3 @@
-// Let 's do some form validation make it where an empty goal cannot be submitted. Also, see if you 
-// can't do some preliminary styling for the form.
-
 import React, {useState} from 'react';
 import short from 'short-uuid';
 
@@ -18,11 +15,6 @@ const defaultGoals = [
   {
     goal: 'Not be fattest',
     id: '3',
-    editing: false,
-  },
-  {
-    goal: 'Be the skinniestest ever bro',
-    id: '4',
     editing: false,
   },
 
@@ -46,12 +38,8 @@ const GoalsPage = ({user}) => {
   const submitForm = e => {
     e.preventDefault()
     const id = short.generate();
-    if (goal === '') {
-      alert("Please add a goal")
-    } else {
-      setGoals([...goals, {goal: formState['goal'], id, editing: false}])
-      setFormState({goal: ''})
-    }
+    setGoals([...goals, {goal: formState['goal'], id, editing: false}])
+    setFormState({goal: ''})
   }
 
   const setEditing = (id, index) => {
@@ -62,22 +50,12 @@ const GoalsPage = ({user}) => {
     setGoals(newGoals)
   }
 
-  
-  const editGoal = (id, index) => {
-    let goalToUpdate = goals[index]
-    goalToUpdate.goal = editedGoal;
-    goalToUpdate.editing= false;
-    let newGoals = [...goals].filter(goal => goal.id !== id)
-    newGoals.splice(index, 0, goalToUpdate)
-    setGoals(newGoals)
-  }
-
   return (
     <div className="PageBody">
       Goals
       {
         user ? (
-            <div className="GoalForm">
+            <div>
               <ul>
                 <form onSubmit={submitForm}>
                   <input
@@ -87,18 +65,13 @@ const GoalsPage = ({user}) => {
                     placeholder="Goal to set"
                     onChange={handleChange}
                   />
-                  <button
-                    type='submit'
-                    disabled={!goal}
-                  >
-                    Add a Goal
-                  </button>
+                  <button type='submit'>Add a Goal</button>
                 </form>
                 {
                   goals.map((g, index) => {
                     const {goal, id, editing} = g;
                     return (
-                      <div className="goalList">
+                      <div style={{display: 'flex'}}>
                         {
                           editing ? (
                               <input
@@ -110,21 +83,19 @@ const GoalsPage = ({user}) => {
                               />
                             ) :
                             (
-                              <span className="goalText" key={id}>{goal}</span>
+                              <span key={id}>{goal}</span>
                             )
                         }
-                        <div className="goalButton">
                         <button onClick={() => onRemoveGoal(id)}>-</button>
                         {
                           editing ? (
-                              <button onClick={() => editGoal(id, index)}>Set</button>
+                              <button>Set</button>
                             )
                             :
                             (
                               <button onClick={() => setEditing(id, index)}>Edit</button>
                             )
                         }
-                        </div>
                       </div>
                     )
                   })

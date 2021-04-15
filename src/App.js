@@ -5,6 +5,7 @@ import GoalsPage from "./pages/GoalsPage"
 import WorkoutsPage from "./pages/WorkoutsPage"
 import StatsPage from "./pages/StatsPage"
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 import ProfilePage from "./pages/ProfilePage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { useState } from "react";
@@ -26,6 +27,7 @@ function App() {
               <Route path='/workouts' exact component={WorkoutsPage} />
               <ProtectedRoute path='/profile' user={loggedIn} exact component={ProfilePage} />
             </Switch>
+        <Footer />
       </BrowserRouter>
     </div>
   );
