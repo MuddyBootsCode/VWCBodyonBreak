@@ -3,6 +3,18 @@
 
 import React from 'react';
 import { Formik, Form, Field, FieldArray} from 'formik';
+import *  as Yup from 'yup';
+
+
+
+const GoalsPageSchema = Yup.object().shape({
+  goals: Yup.string()
+  .min(2, 'Too Short!')
+  .max(50, 'Too Long!')
+  .required('Required')
+});
+
+
 
 const GoalsPage = () => (
    <div>
@@ -15,17 +27,19 @@ const GoalsPage = () => (
           'Michael is Russian'
         ] 
       }}
+      validationSchema={GoalsPageSchema}
        onSubmit={values =>
          setTimeout(() => {
            alert(JSON.stringify(values, null, 2));
          }, 500)
        }
-       render={({ values }) => (
+       render={({ values,errors, touched }) => (
          <Form>
            <FieldArray
              name="goals"
              render={arrayHelpers => (
                <div>
+                 {touched.goals && errors.goals && console.log(errors.goals)}
                  {values.goals && values.goals.length >= 0 ? (
                    values.goals.map((goal, index) => (
                      <div key={index}>
