@@ -39,6 +39,12 @@ const GoalsPage = () => (
              name="goals"
              render={arrayHelpers => (
                <div>
+                
+                   <button type="button" onClick={() => arrayHelpers.insert([0], '')}>
+                     {/* show this when user has removed all goals from the list */}
+                      Add a Goal
+                   </button>
+                 
                  {touched.goals && errors.goals && console.log(errors.goals)}
                  {values.goals && values.goals.length >= 0 ? (
                    values.goals.map((goal, index) => (
@@ -63,15 +69,10 @@ const GoalsPage = () => (
                        </button>
                      </div>
                    ))
-                 ) : (
-                   <button type="button" onClick={() => arrayHelpers.push('')}>
-                     {/* show this when user has removed all goals from the list */}
-                      Add a Goal
-                   </button>
-                 )}
+                 ) : null }
                  <div>
                    
-                   <button type='button' onClick={() => arrayHelpers.push('')}>Add a Goal </button>
+                   
                  </div>
                </div>
              )}></FieldArray>
