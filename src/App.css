@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  background-color: #3F87A6;
+  background-color: #446DA3;  /* #3F87A6 */
 }
 
 .PageHeading {
@@ -29,7 +29,7 @@ body {
   flex-wrap: nowrap;
   /* justify-content: space-between; */
   align-items: center;
-  background: linear-gradient(#f69d3c, #ebf8e1, #3f87a6);
+  background: linear-gradient(#f69d3c, #ebf8e1, #446DA3); /* linear-gradient(#f69d3c, #ebf8e1, #3f87a6) */
   border-bottom: 1px black solid;
   width: 100%;
 }
@@ -164,6 +164,19 @@ body {
   margin: auto 20px;
 }
 /* Sharing Info Block end */
+/* HomePage Video CSS start */
+.homePageVideoDiv {
+  /* border: 2px solid red; */
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.homePageVideo {
+  width: 100%;
+  transform: translateY(-35%);
+}
+/* HomePage Video CSS end */
 
 .listItem {
   display: flex;
@@ -176,6 +189,7 @@ body {
   border: 5px black dotted;
 
 }
+
 
 .insideList {
   /* border: 5px red solid; */
@@ -201,7 +215,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   border-top: 1px #000  solid;
   width: 100%;
-  background: linear-gradient(#3f87a6, #D9C1B6); /*temporary(maybe) just for effect/testing trying to look like water coming up to sandy shore */
+  background: linear-gradient(#446DA3, #cfc9c0, #E1DAD0, #FFFCED); /*  linear-gradient(#3f87a6, #D9C1B6)  :temporary(maybe) just for effect/testing trying to look like water coming up to sandy shore */
   min-height: 100px; /* temporary to create height until context is added properly */
 }
 
