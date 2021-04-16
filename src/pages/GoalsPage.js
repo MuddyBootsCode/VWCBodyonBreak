@@ -4,15 +4,7 @@
 import React from 'react';
 import { Formik, Form, Field, FieldArray} from 'formik';
 import *  as Yup from 'yup';
-
-
-
-const GoalsPageSchema = Yup.object().shape({
-  goals: Yup.string()
-  .min(2, 'Too Short!')
-  .max(50, 'Too Long!')
-  .required('Required')
-});
+import GoalsPageSchema from '../utils/GoalsPageSchema';
 
 
 
@@ -40,7 +32,7 @@ const GoalsPage = () => (
              render={arrayHelpers => (
                <div>
                 
-                   <button type="button" onClick={() => arrayHelpers.insert([0], '')}>
+                   <button type="button" onClick={() => arrayHelpers.insert([0], [])}>
                      {/* show this when user has removed all goals from the list */}
                       Add a Goal
                    </button>
@@ -60,7 +52,6 @@ const GoalsPage = () => (
                          type="button"
                          onClick={() => {
                            arrayHelpers.replace(index, values.goals[index])
-                          console.log(values.goals);
                         }
                       }
                     // insert an empty string at a position
