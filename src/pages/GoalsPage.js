@@ -7,7 +7,6 @@ import *  as Yup from 'yup';
 import GoalsPageSchema from '../utils/GoalsPageSchema';
 
 
-
 const GoalsPage = () => (
    <div>
      <h1> Goals List </h1>
