@@ -7,6 +7,7 @@ import *  as Yup from 'yup';
 import GoalsPageSchema from '../utils/GoalsPageSchema';
 
 
+
 const GoalsPage = () => (
    <div>
      <h1> Goals List </h1>
@@ -31,7 +32,7 @@ const GoalsPage = () => (
              render={arrayHelpers => (
                <div>
                 
-                   <button type="button" onClick={() => arrayHelpers.insert([0], [])}>
+                   <button type="button" onClick={() => arrayHelpers.insert([0], "")}>
                      {/* show this when user has removed all goals from the list */}
                       Add a Goal
                    </button>
