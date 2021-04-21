@@ -1,12 +1,9 @@
-// Let 's do some form validation make it where an empty goal cannot be submitted. Also, see if you 
-// can't do some preliminary styling for the form.
-
 import React from 'react';
 import { Formik, Form, Field, FieldArray} from 'formik';
-import *  as Yup from 'yup';
 import GoalsPageSchema from '../utils/GoalsPageSchema';
 
 
+// ErrorMessage can be used, need to look into it more to figure out how to use it with our setup
 
 const GoalsPage = () => (
    <div>
