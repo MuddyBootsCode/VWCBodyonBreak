@@ -1,9 +1,9 @@
 import React from 'react';
-import { Formik, Form, Field, FieldArray} from 'formik';
+import { Formik, Form, Field, FieldArray, ErrorMessage} from 'formik';
 import GoalsPageSchema from '../utils/GoalsPageSchema';
 
 
-// ErrorMessage can be used, need to look into it more to figure out how to use it with our setup
+// ErrorMessage can be used, need to look into it more to figure out how
 
 const GoalsPage = () => (
    <div>
@@ -29,12 +29,11 @@ const GoalsPage = () => (
              render={arrayHelpers => (
                <div>
                 
-                   <button type="button" onClick={() => arrayHelpers.insert([0], "")}>
+                   <button type="button" onClick={() => arrayHelpers.push("")}>
                      {/* show this when user has removed all goals from the list */}
                       Add a Goal
                    </button>
-                 
-                 {touched.goals && errors.goals && console.log(errors.goals)}
+                 { errors.goals && touched.goals}
                  {values.goals && values.goals.length >= 0 ? (
                    values.goals.map((goal, index) => (
                      <div key={index}>
@@ -64,6 +63,7 @@ const GoalsPage = () => (
                  </div>
                </div>
              )}></FieldArray>
+                <ErrorMessage name="goals">{msg => <div>{errors.goals}</div>}</ErrorMessage>
          </Form>
        )}
      />
