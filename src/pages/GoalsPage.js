@@ -1,116 +1,74 @@
-import React, {useState} from 'react';
-import short from 'short-uuid';
+import React from 'react';
+import { Formik, Form, Field, FieldArray, ErrorMessage} from 'formik';
+import GoalsPageSchema from '../utils/GoalsPageSchema';
 
-const defaultGoals = [
-  {
-    goal: 'Not be fat',
-    id: '1',
-    editing: false,
-  },
-  {
-    goal: 'Not be fatter',
-    id: '2',
-    editing: false,
-  },
-  {
-    goal: 'Not be fattest',
-    id: '3',
-    editing: false,
-  },
 
-];
+// ErrorMessage can be used, need to look into it more to figure out how
 
-const GoalsPage = ({user}) => {
-  const [goals, setGoals] = useState(defaultGoals);
-  const [formState, setFormState] = useState({goal: '', editedGoal: ''});
-  const {goal, editedGoal} = formState;
-
-  const onRemoveGoal = (id) => {
-    setGoals(goals.filter(item => item.id !== id))
-  }
-
-  const handleChange = e => {
-    const {target: {name, value}} = e;
-    e.preventDefault();
-    setFormState({...formState, [name]: value})
-  }
-
-  const submitForm = e => {
-    e.preventDefault()
-    const id = short.generate();
-    setGoals([...goals, {goal: formState['goal'], id, editing: false}])
-    setFormState({goal: ''})
-  }
-
-  const setEditing = (id, index) => {
-    let goalToUpdate = goals.find(goal => goal.id === id)
-    goalToUpdate.editing = true;
-    let newGoals = [...goals].filter(goal => goal.id !== id)
-    newGoals.splice(index, 0, goalToUpdate)
-    setGoals(newGoals)
-  }
-
-  return (
-    <div className="PageBody">
-      Goals
-      {
-        user ? (
-            <div>
-              <ul>
-                <form onSubmit={submitForm}>
-                  <input
-                    type='text'
-                    value={goal}
-                    name="goal"
-                    placeholder="Goal to set"
-                    onChange={handleChange}
-                  />
-                  <button type='submit'>Add a Goal</button>
-                </form>
-                {
-                  goals.map((g, index) => {
-                    const {goal, id, editing} = g;
-                    return (
-                      <div style={{display: 'flex'}}>
-                        {
-                          editing ? (
-                              <input
-                                type='text'
-                                value={editedGoal}
-                                name='editedGoal'
-                                placeholder={goal}
-                                onChange={handleChange}
-                              />
-                            ) :
-                            (
-                              <span key={id}>{goal}</span>
-                            )
+const GoalsPage = () => (
+   <div>
+     <h1> Goals List </h1>
+     <Formik
+       initialValues={{ goals: 
+        [
+          'Greg is Awesome',
+          'Fitz is cool',
+          'Michael is Russian'
+        ] 
+      }}
+      validationSchema={GoalsPageSchema}
+       onSubmit={values =>
+         setTimeout(() => {
+           alert(JSON.stringify(values, null, 2));
+         }, 500)
+       }
+       render={({ values,errors, touched }) => (
+         <Form>
+           <FieldArray
+             name="goals"
+             render={arrayHelpers => (
+               <div>
+                
+                   <button type="button" onClick={() => arrayHelpers.push("")}>
+                     {/* show this when user has removed all goals from the list */}
+                      Add a Goal
+                   </button>
+                 { errors.goals && touched.goals}
+                 {values.goals && values.goals.length >= 0 ? (
+                   values.goals.map((goal, index) => (
+                     <div key={index}>
+                       <Field name={`goals.${index}`} />
+                       <button
+                         type="button"
+                         onClick={() => arrayHelpers.remove(index)} // remove a friend from the list
+                       >
+                         -
+                       </button>
+                       <button
+                         type="button"
+                         onClick={() => {
+                           arrayHelpers.replace(index, values.goals[index])
                         }
-                        <button onClick={() => onRemoveGoal(id)}>-</button>
-                        {
-                          editing ? (
-                              <button>Set</button>
-                            )
-                            :
-                            (
-                              <button onClick={() => setEditing(id, index)}>Edit</button>
-                            )
-                        }
-                      </div>
-                    )
-                  })
-                }
-              </ul>
+                      }
+                    // insert an empty string at a position
+                       >
+                         Edit
+                       </button>
+                     </div>
+                   ))
+                 ) : null }
+                 <div>
+                   
+                   
+                 </div>
+               </div>
+             )}></FieldArray>
+                <ErrorMessage name="goals">{msg => <div>{errors.goals}</div>}</ErrorMessage>
+         </Form>
+       )}
+     />
+   </div>
+ );
 
-            </div>
-          )
-          :
-          (
-            <div> Not Logged in</div>
-          )
-      }
-    </div>
-  );
-};
 
 export default GoalsPage;
