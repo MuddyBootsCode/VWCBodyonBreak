@@ -6,7 +6,7 @@ import GoalsPageSchema from '../utils/GoalsPageSchema';
 // ErrorMessage can be used, need to look into it more to figure out how
 
 const GoalsPage = () => (
-   <div>
+   <div className= "PageBody">
      <h1> Goals List </h1>
      <Formik
        initialValues={{ goals: 
