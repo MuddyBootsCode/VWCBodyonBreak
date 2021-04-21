@@ -4,6 +4,7 @@
 
 body {
   margin: 0;
+  background-color: #446DA3;  /* #3F87A6 */
 }
 
 .PageHeading {
@@ -16,27 +17,166 @@ body {
   align-items: center;
   justify-content: center;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   max-width: 100%;
+  min-height: 100vh;
+
 }
 
+ /* Nav Bar CSS Start */
 .NavBar {
   display: flex;
+  flex-wrap: nowrap;
+  /* justify-content: space-between; */
   align-items: center;
-  justify-content: space-evenly;
+  background: linear-gradient(#f69d3c, #ebf8e1, #446DA3); /* linear-gradient(#f69d3c, #ebf8e1, #3f87a6) */
   border-bottom: 1px black solid;
+  width: 100%;
+}
+
+.NavBar a {    
+  display: flex;
+  margin: 15px;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  text-decoration: none;
 }
 
 .logoLink {
+  /* flex: 1; */
+  /* order: 0; */
+  margin: 0;
+  color: #000;
   text-decoration: none;
-  color: black;
+  /* cursor: default; */
 }
 
-.logoLink:hover {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+.navLink {
+  /* order: 1; */
+  position: relative;
+  display: block;
+  width: auto;
+  text-align: center;
+  color: #000;
+  transition-duration: 0.4s;
 }
+
+
+.navLink:hover {
+  text-shadow: -1px 1px 2px #000, 1px 1px 2px #000, 1px -1px 0 #000, -1px -1px 0 #000;
+  /* animation: shake 0.5s; */
+  /* animation-iteration-count: indefinite; */
+}
+
+.navButton {
+  /* order: 2; */
+  padding: 5px 7px;
+  background-color: #000;
+  color: #FFF;
+  width: 75px;
+  margin: 15px;
+  /* margin-left: auto; */
+  cursor: pointer;
+  border: 2px solid #000;
+  border-radius: 5px;
+  transition-duration: 0.4s;
+}
+
+.navButton.stayRight {
+  margin-left: auto;
+}
+
+.navButton:hover {
+  background-color: transparent;
+  color: #000;
+}
+/* Nav Bar CSS end */
+
+/* Training Info Block start */
+.TrainingInfoBlock {
+  /* border: 5px chartreuse solid; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45%;
+  margin: 50px 40% 50px 10%;
+  animation: slideIn 2.35s forwards;
+  -webkit-animation: slideIn 2.35s forwards;
+  -moz-animation: slideIn 2.35s forwards;
+}
+
+.TrainingInfoBlock h2 {
+  text-align: left;
+  margin: auto 0 auto 20px;
+}
+
+.TrainingInfoBlock p {
+  text-align: left;
+  margin: 20px;
+}
+/* Training Info Block end */
+
+/* Tracking Info Block start */
+.TrackingInfoBlock {
+  /* border: 5px red solid; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45%;
+  margin: 25px 20%;
+  animation: slideIn 2.75s forwards;
+  -webkit-animation: slideIn 2.75s forwards;
+  -moz-animation: slideIn 2.75s forwards;
+}
+
+.TrackingInfoBlock h2 {
+  text-align: left;
+  margin: 20px;
+  
+}
+
+.TrackingInfoBlock p {
+  text-align: left;
+  margin: auto 20px;
+}
+/* Tracking Info Block end */
+
+/* Sharing Info Block start */
+.SharingInfoBlock {
+  /* border: 5px peru solid; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45%;
+  margin: 50px 10% 100px 40%;
+  animation: slideIn 3.25s forwards;
+  -webkit-animation: slideIn 3.25s forwards;
+  -moz-animation: slideIn 3.25s forwards;
+}
+
+.SharingInfoBlock h2 {
+  text-align: left;
+  margin: 20px;
+}
+
+.SharingInfoBlock p {
+  text-align: left;
+  margin: auto 20px;
+}
+/* Sharing Info Block end */
+/* HomePage Video CSS start */
+.homePageVideoDiv {
+  /* border: 2px solid red; */
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.homePageVideo {
+  width: 100%;
+  transform: translateY(-35%);
+}
+/* HomePage Video CSS end */
 
 .listItem {
   display: flex;
@@ -49,6 +189,7 @@ body {
   border: 5px black dotted;
 
 }
+
 
 .insideList {
   /* border: 5px red solid; */
@@ -67,3 +208,70 @@ body {
   align-items: flex-end;
   margin-left: 10px;
 }
+
+/* Start CSS for footer */
+.Footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-top: 1px #000  solid;
+  width: 100%;
+  background: linear-gradient(#446DA3, #cfc9c0, #E1DAD0, #FFFCED); /*  linear-gradient(#3f87a6, #D9C1B6)  :temporary(maybe) just for effect/testing trying to look like water coming up to sandy shore */
+  min-height: 100px; /* temporary to create height until context is added properly */
+}
+
+.footerSection {
+  /* border: 2px red solid; */
+  margin: 20px;
+}
+/* End CSS for footer */
+
+
+
+
+
+
+
+
+
+/* Animation keyframes below here */
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-900px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes slideIn {
+  0% {
+    transform: translateX(-900px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@-moz-keyframes slideIn {
+  0% {
+    transform: translateX(-900px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* @keyframes shake {
+	0% { transform: translate(1px, 1px) rotate(0deg); }
+	10% { transform: translate(-1px, -2px) rotate(-1deg); }
+	20% { transform: translate(-3px, 0px) rotate(1deg); }
+	30% { transform: translate(3px, 2px) rotate(0deg); }
+	40% { transform: translate(1px, -1px) rotate(1deg); }
+	50% { transform: translate(-1px, 2px) rotate(-1deg); }
+	60% { transform: translate(-3px, 1px) rotate(0deg); }
+	70% { transform: translate(3px, 1px) rotate(-1deg); }
+	80% { transform: translate(-1px, -1px) rotate(1deg); }
+	90% { transform: translate(1px, 2px) rotate(0deg); }
+	100% { transform: translate(1px, -2px) rotate(-1deg); }
+} */

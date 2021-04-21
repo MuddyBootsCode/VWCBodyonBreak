@@ -15,27 +15,30 @@ const NavBar = ({setLoggedIn, loggedIn}) => {
       <Link to={'/'} className='logoLink'>
         <h1>Body on Break</h1>
       </Link>
-      <Link to={'/'}>Home</Link>
-      <Link to={'/goals'}>Goals</Link>
-      <Link to={'/workouts'}>Workouts</Link>
-      <Link to={'/stats'}>Stats</Link>
-      <Link to={'/workouts'}>Workouts</Link>
+      <Link className="navLink" to={'/'}>Home</Link>
+      <Link className="navLink" to={'/goals'}>Goals</Link>
+      <Link className="navLink" to={'/workouts'}>Workouts</Link>
+      <Link className="navLink" to={'/stats'}>Stats</Link>
+      <Link className="navLink" to={'/workouts'}>Workouts</Link>
       {
         loggedIn && (
-          <Link to={'/profile'}>My Profile</Link>
+          <Link className="navLink" to={'/profile'}>My Profile</Link>
         )
       }
       {
         !loggedIn ? (
-            <button
+          [
+            <button className="navButton stayRight">Sign Up</button>,
+            <button className="navButton"
               onClick={() => setLoggedIn(true)}
             >
               Login
             </button>
+          ]
           )
           :
           (
-            <button
+            <button className="navButton stayRight"
               onClick={onLogout}
             >
               Logout

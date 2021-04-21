@@ -70,4 +70,5 @@ const GoalsPage = () => (
    </div>
  );
 
+
 export default GoalsPage;
