@@ -1,10 +1,11 @@
 import React from 'react';
 import { useFormik } from 'formik';
+import {Link} from 'react-router-dom';
 import ScrollToTopButton from "./ScrollToTopButton";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebook } from "@fortawesome/free-brands-svg-icons"
-import { faInstagram } from "@fortawesome/free-brands-svg-icons"
-import { faTwitter } from "@fortawesome/free-brands-svg-icons"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 const validate = values => {
   const errors = {};
@@ -50,8 +51,13 @@ const Footer = () => {
     //  Left Section of footer
     <div className="Footer">
         <div className="footerSection footerSectionLeft">
-            This is the footer
-         
+            <h3>Important Information and Legal Stuff</h3>
+            <div className="leftFooterLink">
+            <Link to="../pages/ContactPage.js" className="homePageContactLink" >Contact Us</Link>
+            </div>
+            <div className="leftFooterLink">
+            <Link to="../pages/TermsAndConditions.js" className="homePageTermsLink">Terms and Conditions</Link>
+            </div>
         </div> 
 
         {/* Middle Section of footer */}
@@ -61,7 +67,7 @@ const Footer = () => {
 
         {/* Formik simple newsletter sign-up form straight from docs */}
      <form onSubmit={formik.handleSubmit}>
-     <li className="form-row">
+     <li className="form-row-newsletter">
        <label htmlFor="firstName">First Name</label>
        <input
          id="firstName"
@@ -75,7 +81,7 @@ const Footer = () => {
        {formik.touched.firstName && formik.errors.firstName ? (
          <div>{formik.errors.firstName}</div>
        ) : null}
-       <li className="form-row">
+       <li className="form-row-newsletter">
        <label htmlFor="lastName">Last Name</label>
        <input
          id="lastName"
@@ -89,7 +95,7 @@ const Footer = () => {
        {formik.touched.lastName && formik.errors.lastName ? (
          <div>{formik.errors.lastName}</div>
        ) : null}
-       <li className="form-row">
+       <li className="form-row-newsletter">
        <label htmlFor="email">Email </label>
        <input
          id="email"
@@ -103,7 +109,7 @@ const Footer = () => {
        {formik.touched.email && formik.errors.email ? (
          <div>{formik.errors.email}</div>
        ) : null}
-       <li className="form-row">
+       <li className="form-row-newsletter">
        <button type="submit">Submit</button>
        </li>
      </form>
@@ -111,7 +117,7 @@ const Footer = () => {
 
         {/* Right Section of Footer */}
           <div className="footerSection footerSectionRight">
-              <ScrollToTopButton />
+              <h3>Follow Us!</h3>
             <div className="socialIconsFooter">
             <a href="https://facebook.com" >
               <FontAwesomeIcon icon={faFacebook} size="4x" color="#000" />
@@ -126,6 +132,9 @@ const Footer = () => {
             <a href="https://twitter.com">
               <FontAwesomeIcon icon={faTwitter} size="4x" color="#000"/>
               </a>
+              </div>
+            <div className="forScrollToTopButton">
+              <ScrollToTopButton />
               </div>
             </div>
         </div>

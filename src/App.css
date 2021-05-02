@@ -218,7 +218,23 @@ body {
   margin: 20px;
 }
 
-.scrollToTop {
+.homePageContactLink,
+.homePageTermsLink {
+  text-decoration: none;
+  color: #000;
+  text-align: left;
+}
+
+.homePageContactLink:hover,
+.homePageTermsLink:hover {
+  text-decoration: underline;
+}
+
+/* .leftFooterLink {
+
+} */
+
+.scrollToTopButton {
   font-size: 2rem;
   font-weight: bold;
   background-color: #000;
@@ -229,23 +245,23 @@ body {
   border-radius: 5px;
 }
 
-.form-row {
+.form-row-newsletter {
   display: flex;
   justify-content: flex-end;
   padding: .5em;
 }
-.form-row > label {
+.form-row-newsletter > label {
   text-decoration: underline;
   padding: .5em 1em .5em 0;
   flex: 1;
 }
-.form-row > input {
+.form-row-newsletter > input {
   flex: 2;
 }
-.form-row > input {
+.form-row-newsletter > input {
   padding: .5em;
 }
-.form-row > button {
+.form-row-newsletter > button {
   padding: 5px 7px; 
   background-color: #000;
   color: #FFF;
@@ -256,9 +272,14 @@ body {
   border-radius: 5px;
   transition-duration: 0.4s;
 }
-.form-row > button:hover {
+.form-row-newsletter > button:hover {
   background-color: transparent;
   color: #000;
+}
+
+.forScrollToTopButton {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .socialIconsFooter {
