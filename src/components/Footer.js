@@ -73,6 +73,7 @@ const Footer = () => {
          id="firstName"
          name="firstName"
          type="text"
+         placeholder="Buff"
          onChange={formik.handleChange}
          onBlur={formik.handleBlur}
          value={formik.values.firstName}
@@ -87,6 +88,7 @@ const Footer = () => {
          id="lastName"
          name="lastName"
          type="text"
+         placeholder="Gymdude"
          onChange={formik.handleChange}
          onBlur={formik.handleBlur}
          value={formik.values.lastName}
@@ -101,6 +103,7 @@ const Footer = () => {
          id="email"
          name="email"
          type="email"
+         placeholder="buffgymdude@example.com"
          onChange={formik.handleChange}
          onBlur={formik.handleBlur}
          value={formik.values.email}
