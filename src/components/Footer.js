@@ -1,6 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
-import {Link} from 'react-router-dom';
 import ScrollToTopButton from "./ScrollToTopButton";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
@@ -53,10 +53,10 @@ const Footer = () => {
         <div className="footerSection footerSectionLeft">
             <h3>Important Information and Legal Stuff</h3>
             <div className="leftFooterLink">
-            <Link to="../pages/ContactPage.js" className="homePageContactLink" >Contact Us</Link>
+            <Link className="homePageContactLink" to={'/contact'}>Contact Us</Link>
             </div>
             <div className="leftFooterLink">
-            <Link to="../pages/TermsAndConditions.js" className="homePageTermsLink">Terms and Conditions</Link>
+            <Link className="homePageTermsLink" to={'/terms'}>Terms and Conditions</Link>
             </div>
         </div> 
 

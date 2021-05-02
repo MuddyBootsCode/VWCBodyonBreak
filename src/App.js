@@ -9,6 +9,8 @@ import Footer from "./components/Footer";
 import ProfilePage from "./pages/ProfilePage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { useState } from "react";
+import TermsAndConditions from './pages/TermsAndConditions';
+import ContactPage from './pages/ContactPage';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -25,6 +27,8 @@ function App() {
               </Route>
               <Route path='/stats' exact component={StatsPage} />
               <Route path='/workouts' exact component={WorkoutsPage} />
+              <Route path='/contact' exact component={ContactPage} />
+              <Route path='/terms' exact component={TermsAndConditions} />
               <ProtectedRoute path='/profile' user={loggedIn} exact component={ProfilePage} />
             </Switch>
         <Footer />
