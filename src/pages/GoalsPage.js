@@ -1,12 +1,15 @@
 import React from 'react';
 import { Formik, Form, Field, FieldArray } from 'formik';
 import GoalsPageSchema from '../utils/GoalsPageSchema';
-
-
 // ErrorMessage can be used, need to look into it more to figure out how
+
+
+
+
 
 const GoalsPage = () => (
    <div className= "PageBody">
+     <h1> Goals List </h1> 
      <Formik
        initialValues={{ goals:
          [
