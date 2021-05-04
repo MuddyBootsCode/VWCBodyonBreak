@@ -8,7 +8,6 @@ import HomePageVideo from '../components/HomePageVideo';
 const HomePage = () => {
   return (
     <div className="PageBody">
-        <HomePageVideo />
         <TrainingInfoBlock />
         <TrackingInfoBlock />
         <SharingInfoBlock />

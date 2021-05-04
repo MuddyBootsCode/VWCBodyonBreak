@@ -13,6 +13,7 @@ body {
   font-size: 18px;
   line-height: 1.75;
   background-color: #446DA3;  /* #3F87A6 */
+  color: #f7f5f5;
 }
 
 .PageHeading {
@@ -49,7 +50,7 @@ body {
 
 .logoLink {
   margin: 0;
-  color: #000;
+  color: #022d64;
   text-decoration: none;
 }
 
@@ -58,7 +59,7 @@ body {
   display: block;
   width: auto;
   text-align: center;
-  color: #000;
+  color: #022d64;
   transition-duration: 0.4s;
 }
 
@@ -69,12 +70,12 @@ body {
 
 .navButton {
   padding: 5px 7px;
-  background-color: #000;
+  background-color: #022d64;
   color: #FFF;
   width: 75px;
   margin: 15px;
   cursor: pointer;
-  border: 2px solid #000;
+  border: 2px solid #022d64;
   border-radius: 5px;
   transition-duration: 0.4s;
 }
@@ -85,7 +86,7 @@ body {
 
 .navButton:hover {
   background-color: transparent;
-  color: #000;
+  color: #022d64;
 }
 /* Nav Bar CSS end */
 
@@ -211,6 +212,7 @@ body {
   border-top: 1px #000  solid;
   width: 100%;
   background: linear-gradient(#446DA3, #cfc9c0, #E1DAD0, #FFFCED); 
+  color: #022d64;
 }
 
 .footerSection {
@@ -220,7 +222,7 @@ body {
 .homePageContactLink,
 .homePageTermsLink {
   text-decoration: none;
-  color: #000;
+  color: #022d64;
   text-align: left;
 }
 
@@ -236,7 +238,7 @@ body {
 .scrollToTopButton {
   font-size: 2rem;
   font-weight: bold;
-  background-color: #000;
+  background-color: #022d64;
   color: #FFF;
   width: 75px;
   cursor: pointer;
@@ -262,29 +264,29 @@ body {
 }
 .form-row-newsletter > button {
   padding: 5px 7px; 
-  background-color: #000;
+  background-color: #022d64;
   color: #FFF;
   width: 75px;
   margin: 15px;
   cursor: pointer;
-  border: 2px solid #000;
+  border: 2px solid #022d64;
   border-radius: 5px;
   transition-duration: 0.4s;
 }
 .form-row-newsletter > button:hover {
   background-color: transparent;
-  color: #000;
+  color: #022d64;
+}
+
+.socialIconsFooter {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 50px;
 }
 
 .forScrollToTopButton {
   display: flex;
   justify-content: flex-end;
-}
-
-.socialIconsFooter {
-  display: inline-block;
-  padding: 10px;
-  color: #ebf8e1;
 }
 
 /* End CSS for footer */
