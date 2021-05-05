@@ -9,8 +9,9 @@ export const handlers = [
 
     return res(
       ctx.data({
-        login: {
-          username,
+        user: {
+          __typename: 'User',
+          username: username,
         },
       }),
     )

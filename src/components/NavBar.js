@@ -1,7 +1,17 @@
 import React from 'react';
 import {Link, useHistory} from 'react-router-dom';
+import { useMutation, gql } from "@apollo/client";
+
+const LOGIN_MUTATION = gql`
+mutation Login($username: String!) {
+  login(username: $username) {
+    username
+  }
+}`
+
 
 const NavBar = ({setLoggedIn, loggedIn}) => {
+  const [login] = useMutation(LOGIN_MUTATION);
 
   let history = useHistory()
   const onLogout = () => {
@@ -9,6 +19,7 @@ const NavBar = ({setLoggedIn, loggedIn}) => {
     history.push("/")
   }
 
+  const username = "mockUser";
 
   return (
     <div className="NavBar">
@@ -30,7 +41,7 @@ const NavBar = ({setLoggedIn, loggedIn}) => {
           [
             <button className="navButton stayRight">Sign Up</button>,
             <button className="navButton"
-              onClick={() => setLoggedIn(true)}
+              onClick={() => login({variables: { username } })}
             >
               Login
             </button>
