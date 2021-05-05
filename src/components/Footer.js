@@ -122,19 +122,21 @@ const Footer = () => {
           <div className="footerSection footerSectionRight">
               <h3>Follow Us!</h3>
             <div className="socialIconsFooter">
+
             <a href="https://facebook.com" >
-              <FontAwesomeIcon icon={faFacebook} size="4x" color="#000" />
+              <FontAwesomeIcon icon={faFacebook} size="4x" color="#022d64" alt="facbook logo" />
               </a>
-            </div>
-            <div className="socialIconsFooter">
+            
+            
             <a href="https://instagram.com" >
-              <FontAwesomeIcon icon={faInstagram} size="4x" color="#000"/>
+              <FontAwesomeIcon icon={faInstagram} size="4x" color="#022d64" alt="instagram logo"/>
               </a>
-            </div>
-            <div className="socialIconsFooter">
+            
+            
             <a href="https://twitter.com">
-              <FontAwesomeIcon icon={faTwitter} size="4x" color="#000"/>
+              <FontAwesomeIcon icon={faTwitter} size="4x" color="#022d64" alt="twitter logo"/>
               </a>
+
               </div>
             <div className="forScrollToTopButton">
               <ScrollToTopButton />
