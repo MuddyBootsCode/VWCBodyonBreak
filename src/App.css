@@ -92,16 +92,15 @@ body {
 
 /* Training Info Block start */
 .TrainingInfoBlock {
-  background-color: rgba(126, 121, 121, 0.25);
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 45%;
-  margin: 25px 40% 12.5px 10%;
-  animation: slideIn 2.35s forwards;
-  -webkit-animation: slideIn 2.35s forwards;
-  -moz-animation: slideIn 2.35s forwards;
+  margin: 10px 40% 12.5px 10%;
+  animation: slideIn 1.5s forwards;
+  -webkit-animation: slideIn 1.5s forwards;
+  -moz-animation: slideIn 1.5s forwards;
 }
 
 .TrainingInfoBlock h2 {
@@ -117,16 +116,15 @@ body {
 
 /* Tracking Info Block start */
 .TrackingInfoBlock {
-  background-color: rgba(126, 121, 121, 0.25);
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 45%;
   margin: 12.5px 20%;
-  animation: slideIn 2.75s forwards;
-  -webkit-animation: slideIn 2.75s forwards;
-  -moz-animation: slideIn 2.75s forwards;
+  animation: slideIn 1.5s forwards;
+  -webkit-animation: slideIn 1.5s forwards;
+  -moz-animation: slideIn 1.5s forwards;
 }
 
 .TrackingInfoBlock h2 {
@@ -143,16 +141,15 @@ body {
 
 /* Sharing Info Block start */
 .SharingInfoBlock {
-  background-color: rgba(126, 121, 121, 0.25);
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 45%;
-  margin: 12.5px 10% 25px 40%;
-  animation: slideIn 3.25s forwards;
-  -webkit-animation: slideIn 3.25s forwards;
-  -moz-animation: slideIn 3.25s forwards;
+  margin: 12.5px 10% 10px 40%;
+  animation: slideIn 1.5s forwards;
+  -webkit-animation: slideIn 1.5s forwards;
+  -moz-animation: slideIn 1.5s forwards;
 }
 
 .SharingInfoBlock h2 {
@@ -291,7 +288,81 @@ body {
 
 /* End CSS for footer */
 
+/* Goals Page Specific CSS */
 
+.goals-list-add-goal-button {
+  padding: 5px 7px;
+  background-color: #022d64;
+  color: #FFF;
+  width: 100px;
+  margin: 15px;
+  cursor: pointer;
+  border: 2px solid #022d64;
+  border-radius: 5px;
+  transition-duration: 0.4s;
+}
+
+.goals-list-add-goal-button:hover,
+.set-goal-button:hover {
+  background-color: #F2EEE1;
+  color: #022d64;
+}
+
+.goals-list-text-area {
+  list-style: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom:3px solid #022d64;
+  margin: 5px;
+  height: 40px;
+  background-color: #446DA3;
+  color: #f7f5f5;
+  font-size: 1.5rem;
+}
+
+.goals-list-text-area:focus{
+  border: none;
+}
+
+.goals-list-text-area::placeholder { 
+  color: #f7f5f5;
+  opacity: 1; /* Firefox */
+}
+
+.remove-goal-button {
+  justify-content: center;
+  padding: 5px 7px;
+  background-color: #022d64;
+  color: #FFF;
+  width: 25px;
+  margin: 10px;
+  cursor: pointer;
+  border: 2px solid #022d64;
+  border-radius: 5px;
+  transition-duration: 0.4s;
+}
+
+.remove-goal-button:hover {
+  background-color: #f55151;
+}
+
+.set-goal-button {
+  justify-content: center;
+  padding: 5px 7px;
+  background-color: #022d64;
+  color: #FFF;
+  width: 50px;
+  margin: 5px;
+  cursor: pointer;
+  border: 2px solid #022d64;
+  border-radius: 5px;
+  transition-duration: 0.4s;
+}
+
+
+
+/* End Goals Page Specific CSS */
 
 /* Media Queries */
 @media screen and (min-width: 768px) {

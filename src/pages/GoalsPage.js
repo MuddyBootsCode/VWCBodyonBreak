@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field, FieldArray } from 'formik';
 import GoalsPageSchema from '../utils/GoalsPageSchema';
+import { isNonEmptyArray } from '@apollo/client/utilities';
 // ErrorMessage can be used, need to look into it more to figure out how
 
 
@@ -30,7 +31,7 @@ const GoalsPage = () => (
                name="goals"
                render={(arrayHelpers) => (
                  <div>
-                   <button type="button" onClick={() => arrayHelpers.push("")}>
+                   <button className="goals-list-add-goal-button" type="button" onClick={() => arrayHelpers.push("")}>
                      {/* show this when user has removed all goals from the list */}
                      Add a Goal
                    </button>
@@ -40,22 +41,26 @@ const GoalsPage = () => (
                          <Field name={`goals.${index}`}>
                            {({ field, meta }) => (
                              <div style={{ display: 'flex'}}>
-                               <input type="text" {...field} placeholder="Goal"/>
+                               <input title="Goal, click to edit" className="goals-list-text-area" type="text" {...field} placeholder="Click to enter new goal."/>
                                <button
+                                 title="Remove Goal"
+                                 className="remove-goal-button"
                                  type="button"
                                  onClick={() => arrayHelpers.remove(index)} // remove a friend from the list
                                >
                                  -
                                </button>
                                <button
+                                 className="set-goal-button"
                                  type="button"
                                  onClick={() => {
                                    arrayHelpers.replace(index, props.values.goals[index])
                                  }
                                  }
+                                
                                  // insert an empty string at a position
                                >
-                                 Edit
+                                 Set
                                </button>
                                {meta.touched &&
                                meta.error && <div className="error">{meta.error}</div>}
