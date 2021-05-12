@@ -41,7 +41,7 @@ const GoalsPage = () => (
                          <Field name={`goals.${index}`}>
                            {({ field, meta }) => (
                              <div style={{ display: 'flex'}}>
-                               <input title="Goal, click to edit" className="goals-list-text-area" type="text" {...field} placeholder="Goal"/>
+                               <input title="Goal, click to edit" className="goals-list-text-area" type="text" {...field} placeholder="Click to enter new goal."/>
                                <button
                                  title="Remove Goal"
                                  className="remove-goal-button"
