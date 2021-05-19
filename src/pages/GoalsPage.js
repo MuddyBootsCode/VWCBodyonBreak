@@ -60,7 +60,9 @@ const GoalsPage = () => (
 
                                   // insert an empty string at a position
                                 >
-                                  Set
+                                 {
+                                      props.isSubmitting ? "..." : "Set"
+                                    }
                                 </button>
                                 {meta.touched && meta.error && (
                                   <div className="error">{meta.error}</div>
@@ -79,6 +81,8 @@ const GoalsPage = () => (
                     {/* show this when user has removed all goals from the list */}
                     Add a Goal
                   </button>
+                  <button type="submit">Submit</button>
+                    </div>
                 </div>
               )}
             />
