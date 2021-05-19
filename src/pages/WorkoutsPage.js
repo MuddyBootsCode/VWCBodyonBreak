@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const WorkoutsPage = () => {
-  return (
-    <div className="PageBody">
-      Workouts Page
-    </div>
-  );
+  return <div className="PageBody">Workouts Page</div>;
 };
 
 export default WorkoutsPage;

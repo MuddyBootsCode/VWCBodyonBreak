@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const NotAuthorizedPage = () => {
-  return (
-    <div className='PageBody'>
-      Not Authorized
-    </div>
-  );
+  return <div className="PageBody">Not Authorized</div>;
 };
 
 export default NotAuthorizedPage;
