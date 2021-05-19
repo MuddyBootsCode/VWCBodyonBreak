@@ -8,7 +8,7 @@ export default function ScrollToTop() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   };
 
@@ -27,7 +27,7 @@ export default function ScrollToTop() {
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-//scroll-to-top classes: fixed, bottom:0, right:0
+  //scroll-to-top classes: fixed, bottom:0, right:0
   return (
     <div className="scrollToTopButton">
       {isVisible && (
