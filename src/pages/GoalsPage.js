@@ -33,7 +33,6 @@ const GoalsPage = () => {
           }}
         >
           {(props) => {
-            console.log(props.isSubmitting)
             return(
               <Form onSubmit={props.handleSubmit}>
                 <FieldArray
@@ -62,6 +61,7 @@ const GoalsPage = () => {
                                   <button
                                     className="set-goal-button"
                                     type="button"
+                                    disabled={props.isSubmitting}
                                     onClick={() => {
                                       arrayHelpers.replace(index, props.values.goals[index])
                                     }}
