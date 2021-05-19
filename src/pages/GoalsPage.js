@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
-import {Formik, Form, Field, FieldArray, setIn} from 'formik';
+import { Formik, Form, Field, FieldArray } from 'formik';
 import GoalsPageSchema from '../utils/GoalsPageSchema';
-import { isNonEmptyArray } from '@apollo/client/utilities';
 // ErrorMessage can be used, need to look into it more to figure out how
 
 
@@ -17,7 +16,6 @@ const GoalsPage = () => {
         "Jeff's shoulder is trashed"
       ]
   };
-  const [updatedGoalIndex, setUpdateGoalIndex] = useState(null)
 
     return (
       <div className= "PageBody">
