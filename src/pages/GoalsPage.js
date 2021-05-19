@@ -35,14 +35,6 @@ const GoalsPage = () => {
                 name="goals"
                 render={(arrayHelpers) => (
                   <div>
-                    <button
-                      className="goals-list-add-goal-button"
-                      type="button"
-                      onClick={() => arrayHelpers.push("")}
-                    >
-                      {/* show this when user has removed all goals from the list */}
-                      Add a Goal
-                    </button>
                     {props.values.goals && props.values.goals.length >= 0
                       ? props.values.goals.map((goal, index) => (
                           <div key={index}>
@@ -88,6 +80,14 @@ const GoalsPage = () => {
                           </div>
                         ))
                       : null}
+                    <button
+                      className="goals-list-add-goal-button"
+                      type="button"
+                      onClick={() => arrayHelpers.push("")}
+                    >
+                      {/* show this when user has removed all goals from the list */}
+                      Add a Goal
+                    </button>
                     <button type="submit">Submit</button>
                   </div>
                 )}
