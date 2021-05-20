@@ -88,7 +88,9 @@ const GoalsPage = () => {
                       {/* show this when user has removed all goals from the list */}
                       Add a Goal
                     </button>
-                    <button type="submit">Submit</button>
+                    <button className="goals-list-submit-button" type="submit">
+                      Submit
+                    </button>
                   </div>
                 )}
               />
