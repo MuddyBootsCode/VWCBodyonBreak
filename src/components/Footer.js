@@ -82,7 +82,9 @@ const Footer = () => {
             />
           </li>
           {formik.touched.firstName && formik.errors.firstName ? (
-            <div className="error">{formik.errors.firstName}</div>
+            <div className="error-newsletter-subscribe">
+              {formik.errors.firstName}
+            </div>
           ) : null}
           <li className="form-row-newsletter">
             <label htmlFor="lastName">Last Name</label>
@@ -97,7 +99,9 @@ const Footer = () => {
             />
           </li>
           {formik.touched.lastName && formik.errors.lastName ? (
-            <div className="error">{formik.errors.lastName}</div>
+            <div className="error-newsletter-subscribe">
+              {formik.errors.lastName}
+            </div>
           ) : null}
           <li className="form-row-newsletter">
             <label htmlFor="email">Email </label>
@@ -112,7 +116,9 @@ const Footer = () => {
             />
           </li>
           {formik.touched.email && formik.errors.email ? (
-            <div className="error">{formik.errors.email}</div>
+            <div className="error-newsletter-subscribe">
+              {formik.errors.email}
+            </div>
           ) : null}
           <li className="form-row-newsletter">
             <button type="submit">Submit</button>

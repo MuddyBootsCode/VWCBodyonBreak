@@ -211,6 +211,10 @@ body {
   margin: 20px;
 }
 
+/* .footerSectionMiddle {
+  border: 1px solid red;
+} */
+
 .homePageContactLink,
 .homePageTermsLink {
   text-decoration: none;
@@ -245,7 +249,7 @@ body {
 }
 .form-row-newsletter > label {
   text-decoration: underline;
-  padding: 0.5em 1em 0.5em 0;
+  padding: 0.5em 0.5em 0.5em 0;
   flex: 1;
 }
 .form-row-newsletter > input {
@@ -253,6 +257,8 @@ body {
 }
 .form-row-newsletter > input {
   padding: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 .form-row-newsletter > button {
   padding: 5px 7px;
@@ -284,6 +290,10 @@ body {
 /* End CSS for footer */
 
 /* Goals Page Specific CSS */
+
+/* .goals-list-container {
+  position: absolute;
+} */
 
 .goals-list-add-goal-button {
   padding: 5px 7px;
@@ -335,10 +345,6 @@ body {
   font-size: 1.5rem;
 }
 
-.goals-list-text-area:focus {
-  border: none;
-}
-
 .goals-list-text-area::placeholder {
   color: #f7f5f5;
   opacity: 1; /* Firefox */
@@ -376,9 +382,15 @@ body {
   transition-duration: 0.4s;
 }
 
-.error {
+.error-goals-list {
+  position: absolute;
+  transform: translateX(425px);
   color: #f55151;
-  margin: auto;
+  margin: 10px auto;
+}
+
+.error-newsletter-subscribe {
+  color: #f55151;
 }
 
 /* End Goals Page Specific CSS */
