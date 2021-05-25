@@ -384,7 +384,7 @@ body {
 
 .error-goals-list {
   position: absolute;
-  transform: translateX(425px);
+  transform: translateX(475px);
   color: #f55151;
   margin: 10px auto;
 }
