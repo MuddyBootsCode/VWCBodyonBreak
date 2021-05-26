@@ -72,7 +72,9 @@ const GoalsPage = () => {
                                     {props.isSubmitting ? "..." : "Set"}
                                   </button>
                                   {meta.touched && meta.error && (
-                                    <div className="error">{meta.error}</div>
+                                    <div className="error-goals-list">
+                                      {meta.error}
+                                    </div>
                                   )}
                                 </div>
                               )}
