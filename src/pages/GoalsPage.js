@@ -7,13 +7,12 @@ import { isNonEmptyArray } from "@apollo/client/utilities";
 const GoalsPage = () => {
   const initialGoals = {
     goals: [
-      "Greg is Awesome",
-      "Fitz is cool",
-      "Michael is Russian",
-      "Jeff's shoulder is trashed",
+      {goal:"Greg is Awesome", edited: false},
+      {goal:"Fitz is cool", edited: true},
+      {goal:"Michael is Russian", edited: false},
+      {goal:"Jeff's shoulder is trashed", edited: false},
     ],
   };
-  const [updatedGoalIndex, setUpdateGoalIndex] = useState(null);
 
   return (
     <div className="PageBody">
@@ -38,7 +37,7 @@ const GoalsPage = () => {
                     {props.values.goals && props.values.goals.length >= 0
                       ? props.values.goals.map((goal, index) => (
                           <div key={index}>
-                            <Field name={`goals.${index}`}>
+                            <Field name={`goals.${index}.goal`}>
                               {({ field, meta }) => (
                                 <div style={{ display: "flex" }}>
                                   <input
@@ -61,6 +60,7 @@ const GoalsPage = () => {
                                     type="button"
                                     disabled={props.isSubmitting}
                                     onClick={() => {
+                                      props.values.goals[index].edited = false
                                       arrayHelpers.replace(
                                         index,
                                         props.values.goals[index]
@@ -69,7 +69,7 @@ const GoalsPage = () => {
 
                                     // insert an empty string at a position
                                   >
-                                    {props.isSubmitting ? "..." : "Set"}
+                                    {props.isSubmitting ? "..." : goal.edited ===  true ? "Set" : "Edit"}
                                   </button>
                                   {meta.touched && meta.error && (
                                     <div className="error-goals-list">
